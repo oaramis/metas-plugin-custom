@@ -1,0 +1,191 @@
+.image-attachment {
+	display: block;
+    margin: 0px 0px 6px 0px;
+}
+
+/* GALLERY BASED ON MULTIPLE GALLERY ON POST*/
+.gallery-wrapper-sortable {
+	display: table;
+}
+
+.gallery_thumnails {
+	display: block;
+	float: left;
+	padding: 0;
+	border: 1px solid #bbb;
+	margin-right: 13px;
+	border-radius: 3px;
+	position: relative;
+	cursor: move;
+	margin-bottom: 11px;
+	background: #dfdfdf;
+}
+
+.gallery_thumnails:hover {
+	background: #efefef;
+}
+
+.gallery_thumnails  > div{
+	margin: 12px;
+	width: 150px;
+	height: 123px;
+	overflow: hidden;
+}
+
+.delete-this,
+.gallery_remove_item {
+	display: block;
+	position: absolute;
+	background: url(images/uploader-icons.png) no-repeat -96px 3px #fff;
+	width: 21px;
+	height: 21px;
+	top: -9px;
+	right: -11px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+.delete-this:hover,
+.gallery_remove_item:hover{
+	/* border-color: #f77; */
+	background-color: #f44;
+}
+
+.delete-this > span,
+.gallery_remove_item > span{
+	display: none;
+}
+
+.gallery-add-new,
+.gallery_add {
+	display: inline-block;
+	padding: 8px 20px 8px 38px;
+	border: 1px solid #bbb;
+	background: url(images/welcome-icons.png) no-repeat 12px 7px #fff;
+	text-decoration: none;
+	color: #333;
+	text-shadow: 1px 1px 1px #fff;
+	border-radius: 3px;
+}
+
+.gallery_add:hover {	
+	border: 1px solid #aaa;
+}
+
+
+
+
+
+/*.gallery-filed-content.inactive {
+	display: none;
+}
+
+.gallery-filed {
+	border: 1px solid #ddd;
+	padding: 20px;
+	font-size: 14px;
+	width: 800px;
+	position: relative;
+	top: -1px;
+	background: rgba(245,245,245, 0.5);
+}
+
+input.gallery-post-type[type="checkbox"]{
+	margin-right: 5px;
+}
+
+.gallery-filed:first-child {
+	top: 0;
+}
+
+.gallery-filed label {
+	display: inline-block;
+	width: 20%;
+	vertical-align: top;
+}
+
+.gallery-form{
+	float: left;
+}
+
+.gallery-filed .sortable-list li{
+	display: block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	position: relative;
+	margin-bottom: 12px;
+	background: rgba(230,230,230, 0.5);
+}
+
+.drag-icon {
+	background: url(images/draggable.png) no-repeat 6px center transparent;
+	position: absolute;
+	width: 25px;
+	height: 100%;
+	top: 0;
+	margin-top: 0;
+	left: 0;
+	cursor: move;
+}
+
+.drag-icon:hover{
+	background: url(images/draggable.png) no-repeat -14px center transparent;
+}
+
+.gallery_logo{
+	background: url(images/gallery-logo.png) no-repeat transparent;
+	width: 300px;
+	height: 200px;
+}
+
+.gallery-description {
+	color: #0a0;
+	font-size: 0.8em;
+	margin-left: 28%;
+	margin-top: -4px;
+	margin-bottom: 5px;
+}
+
+.gallery-filed .gallery-selectfield{
+	width: 79%;
+	padding: 2px;
+}
+.gallery-filed .gallery-contentfield{
+	width: 78%;
+	padding: 2px;
+	display: inline-block;
+}
+.gallery-filed .gallery-textfield {
+	width: 79%;
+	padding: 6px;
+}
+
+.sortable-list-item-wrapper {
+	margin: 10px 10px 10px 25px;
+	border-left: 1px solid #ddd;
+	padding-left: 10px;
+}*/
+
+
+
+
+
+
+
+
+/*.container-metas {
+  	background-color: #fff;
+	width: 600px;
+	overflow: hidden;
+}
+#content-metas {
+	width:600px;
+	overflow:hidden;
+}
+.step {
+    float: left;
+    width: 600px;
+}
+.dashicons-arrow-left-alt {
+	cursor: pointer;
+}*/
