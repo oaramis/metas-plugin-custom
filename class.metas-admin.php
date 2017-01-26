@@ -164,11 +164,11 @@
 									<tr>
 										<th scope="row">Specific Post Type</th>
 										<td>
-											<select id="posts_types" name="metas-custom[_posts_types][]" class="posts_types_meta">
-												<option value="">All post types</option>
+											<select id="posts_types" name="metas-custom[_posts_types][]" class="posts_types_meta"  multiple="multiple">
+												<option value="all">All post types</option>
 												<?php 
-													foreach ($post_types as $key => $postType) {
-														echo '<option value="'.$postType->ID.'">'.$postType->post_title.'</option>';
+													foreach ($post_types as $postType) {
+														echo '<option value="'.$postType.'">'.$postType.'</option>';
 													}
 												?>
 											</select>
@@ -214,10 +214,11 @@
 			   '_builtin' => false
 			);
 
-			$output = 'names';
-			$operator = 'and';
-			  
-			return get_post_types( $args, $output, $operator );
+			$output = 'names'; // names or objects, note names is the default
+			$operator = 'and'; // 'and' or 'or'
+			$post_types = get_post_types( $args, $output, $operator ); 
+
+			return $post_types;
 	    }
 
 	    /**
@@ -265,8 +266,13 @@
 	    	if ( !empty($dataMetas) ) {
 	    		foreach ($dataMetas as $key => $meta) {
 	    			/* CHECK IF HAS PAGES */
-	    			if ( isset($meta["_pages"]) && !empty($meta["_pages"]) ) {
+	    			if ( isset($meta["_pages"]) && !empty($meta["_pages"][0]) ) {
 	    				self::createMetasPages($meta);
+	    			}
+
+	    			/* POSTS TYPES REGISTER METAS */
+	    			if ( isset($meta["_posts_types"]) && !empty($meta["_posts_types"][0]) ) {
+	    				self::createMetasPostTypes($meta);
 	    			}
 
 	    			/* CHECK IF ALL POSTS IS true */
@@ -388,6 +394,57 @@
 		    	if ($createMeta) {
 		    		self::addMetaBox($nameMetaBox, $titleMetaBox, 'page' , $noInputs, $noEditors, $imgFeatured, $videoFeatured, $documentFeatured, $gallery);
 		    	}
+		    }
+	    }
+
+	    public function createMetasPostTypes($meta)
+	    {
+	    	// echo "<pre>";
+	    	// print_r($meta);
+	    	// echo "</pre>";
+	    	// exit();
+	    	$nameMetaBox = '';
+		    $titleMetaBox = '';
+		    $noInputs = '';
+		    $noEditors = '';
+		    $imgFeatured = '';
+		    $videoFeatured = '';
+		    $documentFeatured = '';
+		    $gallery = '';
+
+		    if (isset($meta['_title_meta_box'])) {
+		    	$titleMetaBox = $meta['_title_meta_box'];
+		    }
+
+		    if (isset($meta['_no_inputs'])) {
+		    	$noInputs = $meta['_no_inputs'];
+		    }
+		    	
+		    if (isset($meta['_no_editors'])) {
+		    	$noEditors = $meta['_no_editors'];
+		    }
+
+		    if (isset($meta['_name_meta_box'])) {
+		    	$nameMetaBox = $meta['_name_meta_box'];    	
+		    }
+
+		    if ( isset($meta['_img_featured']) && $meta['_img_featured'] == 'yes' ) {
+		    	$imgFeatured = $meta['_img_featured'];    	
+		    }
+
+		    if ( isset($meta['_video_featured']) && $meta['_video_featured'] == 'yes' ) {
+		    	$videoFeatured = $meta['_video_featured'];    	
+		    }
+
+		    if ( isset($meta['_document_featured']) && $meta['_document_featured'] == 'yes' ) {
+		    	$documentFeatured = $meta['_document_featured'];    	
+		    }
+
+		    if ( isset($meta['_gallery']) && $meta['_gallery'] == 'yes' ) {
+		    	$gallery = $meta['_gallery'];    	
+		    }
+		    foreach ($meta['_posts_types'] as $key => $postType) {
+	    		self::addMetaBox($nameMetaBox, $titleMetaBox, $postType , $noInputs, $noEditors, $imgFeatured, $videoFeatured, $documentFeatured, $gallery);
 		    }
 	    }
 
