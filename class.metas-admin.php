@@ -550,15 +550,15 @@
 					$c = 0;
 					$val = '';
 					while ( $c < $metabox['args']['noInputs'] ) {
-						if(isset($data['input_text'][$c]) && !empty($data['input_text'][$c])) {
-							$val = $data['input_text'][$c];
+						if(isset($data['text'][$c]) && !empty($data['text'][$c])) {
+							$val = $data['text'][$c];
 						} else {
 							$val = '';
 						}
 			?>
 						<div class="form-field">
 							<label>Titulo</label>
-							<input name="<?php echo $nameMetaBox; ?>[input_text][<?php echo $c; ?>]"  size="40" type="text" value="<?php echo $val; ?>" />
+							<input name="<?php echo $nameMetaBox; ?>[text][<?php echo $c; ?>]"  size="40" type="text" value="<?php echo $val; ?>" />
 						</div>
 			<?php			
 						$c++;
@@ -575,10 +575,10 @@
 					$val = '';
 					$description = '';
 					while ( $c < $metabox['args']['noEditors'] ) {
-						$description_name = $nameMetaBox."[description_text][$c]";
+						$description_name = $nameMetaBox."[textarea][$c]";
 						$editor_id = 'editor'.$nameMetaBox.'_'.$c;
 						if(isset($data) && !empty($data)) {
-							$description = $data['description_text'][$c];
+							$description = $data['textarea'][$c];
 						}
 			?>
 						<div class="form-field">
